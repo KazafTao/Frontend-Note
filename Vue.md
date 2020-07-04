@@ -6,6 +6,13 @@ grammar_cjkRuby: true
 ---
 
 ## 安装
+
+### 安装nodejs
+yum install -y nodejs 
+
+### 安装vue-cli
+npm install -g @vue/cli
+
 - 开发环境
 	- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 - 生产环境
