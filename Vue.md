@@ -22,9 +22,9 @@ grammar_cjkRuby: true
 ### 下载引入
 
  - 开发环境
-	 - https://vuejs.org/js/vue.js
+	 - wget https://vuejs.org/js/vue.js
  - 生产环境
-	 - https://vuejs.org/js/vue.min.js
+	 -  wget https://vuejs.org/js/vue.min.js
 
 
 ----------
@@ -40,8 +40,17 @@ curl -sL https://rpm.nodesource.com/setup_14.x | bash -
 
  - npm config set registry https://registry.npm.taobao.org/
  - npm install -g cnpm
- - cnpm install -g @vue/cli
+ - cnpm install -g @vue/cli 
 
+
+----------
+## 语法
+![语法思维导图](xmind/vue常用语法.png)
+### 实例属性
+
+ - el 挂载点，用于绑定一个dom元素及其所有子元素
+ - data 数据，可以传对象或者函数，对象在el里面可以直接用{{}}引用，函数是组件化用的
+ - methods 方法，用于写js函数，方便和dom事件绑定
 
 ## 流行框架
  - Vuetify
