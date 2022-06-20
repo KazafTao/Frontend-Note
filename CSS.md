@@ -32,6 +32,10 @@ CSS 专门用于 “美化” HTML标签
    </head>
    ```
 
+### 页面布局
+
+根据效果图将页面划分为多个小区域，搭建html骨架，再一一实现这些区域的样式
+
 ## 选择器
 
 ### 类选择器(用得最多)
@@ -161,26 +165,11 @@ div {
 }
 ```
 
-### 浮动
-
-浮动demo
-
-```html
-<span style="float: right">右边</span>
-```
-
-块标签浮动起来的时候，变成行内块标签。标签浮动之后，就会脱离文档流，使父标签失去支撑。如果要取消脱离文档流的效果，可以在浮动标签的兄弟标签下加clear: both，demo如下
-
-```html
-<div style="float: left"></div>
-<div style="clear: both;"></div>
-```
-
 ### 边距
 
 #### 内边距
 
-标签里面的内容距离标签的距离
+标签里面的内容距离标签的距离，用于让内容和标签本身保持一定距离
 
 demo
 
@@ -208,4 +197,161 @@ demo
 ```
 
 ![image-20220618112504755](https://s2.loli.net/2022/06/18/5IKPgLCmU4G79qu.png)
+
+#### 外边距
+
+标签距离其他标签的距离
+
+demo
+
+```html
+<div style="height:200px;background-color:blue"></div>
+<div style="height:100px;background-color:red;margin-top:20px"></div>
+```
+
+效果
+
+![image-20220618132102807](https://s2.loli.net/2022/06/18/MOt9QjwhRrFBAaJ.png)
+
+body默认有外边距，造成页面四边都有白色空隙。如果不希望看到body的外边距，可以添加
+
+```css
+body {
+    margin:0;
+}
+```
+
+如果希望区域水平居中，可以设置区域宽度+左右外边距为auto
+
+如果希望区域垂直居中，可以计算整体区域高度与该区域高度的差，再除以二得到上下外边距
+
+### 透明度
+
+可以通过设置opacity来设置元素的透明度，取值在0-1之间，0表示全透明，1表示不透明
+
+### 浮动
+
+浮动demo
+
+```html
+<span style="float: right">右边</span>
+```
+
+块标签浮动起来的时候，变成行内块标签。标签浮动之后，就会脱离文档流，使父标签失去支撑。如果要取消脱离文档流的效果，可以在浮动标签的兄弟标签下加clear: both，demo如下
+
+```html
+<div style="float: left"></div>
+<div style="clear: both;"></div>
+```
+
+### 位置
+
+position有三个取值，分别为fixed，relative和absolute
+
+#### fixed
+
+固定在窗口的某个位置。demo
+
+```html
+<head>
+    <meta charset="utf-8">
+    <style>
+        /* 通过四边距离均为0实现覆盖全屏的幕布效果 */
+        .mask {
+            background-color: black;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            opacity: 0.7;
+        }
+        /* 通过四边距离均为0 + 自动外边距实现居中的效果 */
+        .dialog {
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="mask"></div>
+<div class="dialog"></div>
+</body>
+```
+
+![image-20220620153920237](https://s2.loli.net/2022/06/20/yEr3dvs7QTXUl2O.png)
+
+#### relative
+
+#### absolute
+
+## 伪元素
+
+### hover
+
+设置鼠标放在元素上时的样式，demo
+
+```css
+.header a:hover {
+    color: white;
+}
+```
+
+还可以和其他样式组合使用，达到鼠标放在某个区域下元素才显示的效果
+
+```css
+.download {
+    display: none;
+}
+
+.app:hover .download {
+    display: block;
+}
+```
+
+### after
+
+在选定的元素后追加伪元素，demo
+
+```html
+head>
+    <meta charset="utf-8">
+    <style>
+        a:after {
+            content: "->"  /*在所有a标签的内容后面自动添加一个 -> */
+        }
+    </style>
+</head>
+<body>
+<a href="">点击</a>
+```
+
+效果如下
+
+![image-20220620113611392](https://s2.loli.net/2022/06/20/U4t5eBh8OwXYEJv.png)
+
+应用：在float元素后面自动追加 ```<div style="clear:both;"></div>``` 清除浮动元素，demo
+
+```css
+/*这样clearfix类的div就不需要再添加 <div style="clear:both;"></div>了*/
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both; 
+}
+```
+
+
+
+
+
+
 
