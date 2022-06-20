@@ -289,9 +289,36 @@ position有三个取值，分别为fixed，relative和absolute
 
 ![image-20220620153920237](https://s2.loli.net/2022/06/20/yEr3dvs7QTXUl2O.png)
 
-#### relative
+#### relative和absolute
 
-#### absolute
+通过relative元素作为参考物，配置absolute相对于relative的元素的位置
+
+demo,实现 下载二维码在下载链接的下方
+
+```html
+<a href="" class="download">下载app
+    <div class="qcode">
+        <img src="qcode.png" alt="下载二维码">
+    </div>
+ </a>
+```
+
+```css
+.download {
+    position: relative; /*作为参照物*/
+}
+
+.qcode {
+    position: absolute; /*二维码默认在download的下方*/
+    display: none;
+}
+
+.download:hover .qcode{
+    display: block;
+}
+```
+
+![image-20220620161721229](https://s2.loli.net/2022/06/20/jgEVo1b5p8IOFQh.png)
 
 ## 伪元素
 
