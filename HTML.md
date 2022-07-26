@@ -40,13 +40,13 @@ demo如下
 
 #### input
 
-type为radio时，通过**相同的name属性**来确定属于同一个单选项，通过value来指定向表单提交的值
+type为**radio**时，通过**相同的name属性**来确定属于同一个**单选项**，通过value来指定向表单提交的值
 
-type为checkbox时，通过**相同的name属性**来确定属于同一个多选项，通过value来指定向表单提交的值
+type为**checkbox**时，通过**相同的name属性**来确定属于同一个**多选项**，通过value来指定向表单提交的值
 
-type为file时，浏览器自动识别为选择文件上传
+type为**file**时，浏览器自动识别为**选择文件上传**
 
-type为button时，浏览器识别为按钮，为submit时，浏览器识别为表单提交按钮
+type为**button**时，浏览器识别为**按钮**，为**submit**时，浏览器识别为**表单提交按钮**
 
 ## 请求
 
@@ -60,12 +60,12 @@ type为button时，浏览器识别为按钮，为submit时，浏览器识别为�
 
 ## 表单
 
-### from标签
+### form标签
 
-form标签的method属性指定请求方法，action属性指定请求url,如果url中没有ip和端口，默认是当前页面的ip和端口
+form标签的method属性指定请求方法，action属性指定请求url,如果url中没有ip和端口只有uri，默认是当前页面的ip和端口。如果不填action,则默认为当前url。
 
 表单内input，textarea，select标签必须用name属性来标识字段名
 
-### submit标签
+### submit按钮
 
 submit只提交form表单内的数据
